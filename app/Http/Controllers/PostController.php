@@ -39,4 +39,24 @@ class PostController extends Controller //StudlyCase
         return view('posts.create');
     }
 
+    public function store(Request $request)
+    {
+        // $data = $_POST;
+        // dd($data);
+        // //print and stop execution (die dump)
+        // dd('hello world stop execution here');
+
+        // //$data = request()->all();
+        // $requestObject = request();
+        // $data = $requestObject->all();
+
+        // $title = request()->title;
+        // $description = request()->description;
+        // $postCreator = request()->post_creator;
+        // dd($title, $description, $postCreator);
+
+        // dd($request->all());
+        return 'we are in store action';
+    }
+
 }
