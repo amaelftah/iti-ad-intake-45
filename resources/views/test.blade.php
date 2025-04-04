@@ -1,8 +1,9 @@
-@foreach ($key as $course)
+<html>
+    <head>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
 
-    {{ $course }}
-    
-@endforeach
-
-
-{{ $personName }}
+    <body>
+        <p class="text-red-400 text-5xl">hello world</p>
+    </body>
+</html>
