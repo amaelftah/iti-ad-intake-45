@@ -41,6 +41,10 @@ class PostController extends Controller //StudlyCase
 
     public function store(Request $request)
     {
+        //1-get the data
+        //2- store the data in database
+        //3- redirect to posts index page
+
         // $data = $_POST;
         // dd($data);
         // //print and stop execution (die dump)
@@ -56,7 +60,8 @@ class PostController extends Controller //StudlyCase
         // dd($title, $description, $postCreator);
 
         // dd($request->all());
-        return 'we are in store action';
-    }
 
+        //query to return the data from database
+        return to_route('posts.index');
+    }
 }
