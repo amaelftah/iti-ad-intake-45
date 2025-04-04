@@ -34,4 +34,9 @@ class PostController extends Controller //StudlyCase
         ]);
     }
 
+    public function create()
+    {
+        return view('posts.create');
+    }
+
 }
