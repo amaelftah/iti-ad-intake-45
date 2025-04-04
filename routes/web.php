@@ -1,19 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    $courses = ['laravel', 'php'];
-    $name = 'ahmed';
-    $age = '30';
-    $gender = 'male';
-
-    return view('test',[
-        'key' => $courses,
-        'personName' => $name,
-    ]);
-});
+Route::get('/test', [TestController::class, 'testAction']);
