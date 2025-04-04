@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', [PostController::class, 'index']);
-
+Route::get('/posts/{post}', [PostController::class, 'show']);
 
 //1- Route & Controller & view ----- (DONE)
 //2- css framework (tailwindcss) && installation && import ------ (DONE)
