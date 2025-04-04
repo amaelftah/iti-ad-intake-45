@@ -55,28 +55,20 @@
                        </tr>
                    </thead>
                    <tbody class="divide-y divide-gray-200">
-                       <tr>
-                           <td class="px-4 py-2 font-medium whitespace-nowrap text-gray-900">1</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700">Mark</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700">Otto</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700">@mdo</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700 space-x-2">
-                               <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-400 rounded hover:bg-blue-500">View</a>
-                               <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700">Edit</a>
-                               <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">Delete</a>
-                           </td>
-                       </tr>
-                       <tr>
-                           <td class="px-4 py-2 font-medium whitespace-nowrap text-gray-900">2</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700">Mark</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700">Otto</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700">@mdo</td>
-                           <td class="px-4 py-2 whitespace-nowrap text-gray-700 space-x-2">
-                               <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-400 rounded hover:bg-blue-500">View</a>
-                               <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700">Edit</a>
-                               <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">Delete</a>
-                           </td>
-                       </tr>
+                    @foreach ($posts as $post)
+                        <tr>
+                            <td class="px-4 py-2 font-medium whitespace-nowrap text-gray-900">{{$post['id']}}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post['title']}}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post['posted_by']}}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post['created_at']}}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-gray-700 space-x-2">
+                                <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-400 rounded hover:bg-blue-500">View</a>
+                                <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700">Edit</a>
+                                <a href="#" class="inline-block px-4 py-1 text-xs font-medium text-white bg-red-600 rounded hover:bg-red-700">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+
                    </tbody>
                </table>
            </div>

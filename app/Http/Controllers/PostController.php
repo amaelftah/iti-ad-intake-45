@@ -8,7 +8,13 @@ class PostController extends Controller //StudlyCase
 {
     public function index() //camelCase
     {
-        return view('posts.index');
+        $posts = [
+            ['id' => 1 , 'title' => 'First Post', 'posted_by' => 'Ahmed', 'created_at' => '2025-11-10 10:00:00'],
+            ['id' => 2 , 'title' => 'Second Post','posted_by' => 'Mohamed', 'created_at' => '2025-11-10 10:00:00'],
+            ['id' =>3 , 'title' => 'Third Post','posted_by' => 'Mohamed', 'created_at' => '2025-11-10 10:00:00'],
+        ];
+
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function show()
