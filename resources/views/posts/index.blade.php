@@ -24,7 +24,7 @@
                         <tr>
                             <td class="px-4 py-2 font-medium whitespace-nowrap text-gray-900">{{$post->id}}</td>
                             <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post->title}}</td>
-                            <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post->posted_by}}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post->user ? $post->user->name : 'Not Found'}}</td>
                             <td class="px-4 py-2 whitespace-nowrap text-gray-700">{{$post->created_at}}</td>
                             <td class="px-4 py-2 whitespace-nowrap text-gray-700 space-x-2">
                                 <a href="{{ route('posts.show', $post->id) }}" class="inline-block px-4 py-1 text-xs font-medium text-white bg-blue-400 rounded hover:bg-blue-500">View</a>

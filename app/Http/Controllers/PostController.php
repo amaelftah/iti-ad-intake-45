@@ -21,7 +21,7 @@ class PostController extends Controller //StudlyCase
     {
         //select * from posts where id = 1 limit 1;
         $post = Post::find($id);
-
+        // dd($post->user, $post->testingRelation);
         //select * from posts where id = 1 limit 1;
         // $post = Post::where('id', $id)->first();
 

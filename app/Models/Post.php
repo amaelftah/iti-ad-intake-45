@@ -11,4 +11,14 @@ class Post extends Model
         'description',
         'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function testingRelation()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
