@@ -7,11 +7,11 @@
             </div>
             <div class="px-4 py-4">
                 <div class="mb-2">
-                    <h3 class="text-lg font-medium text-gray-800">Title :- <span class="font-normal">{{ $post['title'] }}</span></h3>
+                    <h3 class="text-lg font-medium text-gray-800">Title :- <span class="font-normal">{{ $post->title }}</span></h3>
                 </div>
                 <div>
                     <h3 class="text-lg font-medium text-gray-800">Description :-</h3>
-                    <p class="text-gray-600">{{ $post['description'] }}.</p>
+                    <p class="text-gray-600">{{ $post->description }}.</p>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
             </div>
             <div class="px-4 py-4">
                 <div class="mb-2">
-                    <h3 class="text-lg font-medium text-gray-800">Name :- <span class="font-normal">{{$post['user']['name']}}</span></h3>
+                    <h3 class="text-lg font-medium text-gray-800">Name :- <span class="font-normal">{{$post->user ? $post->user->name : 'Not Found'}}</span></h3>
                 </div>
                 <div class="mb-2">
                     <h3 class="text-lg font-medium text-gray-800">Email :- <span class="font-normal">ahmed@gmail.com</span></h3>

@@ -2,32 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller //StudlyCase
 {
     public function index() //camelCase
     {
-        $posts = [
-            ['id' => 1 , 'title' => 'First Post', 'posted_by' => 'Ahmed', 'created_at' => '2025-11-10 10:00:00'],
-            ['id' => 2 , 'title' => 'Second Post','posted_by' => 'Mohamed', 'created_at' => '2025-11-10 10:00:00'],
-            ['id' =>3 , 'title' => 'Third Post','posted_by' => 'Mohamed', 'created_at' => '2025-11-10 10:00:00'],
-        ];
+        //query to retrieve posts from database
+        //select * from posts;
+        $posts = Post::all();
 
         return view('posts.index', ['posts' => $posts]);
     }
 
-    public function show()
+    public function show($id)
     {
-        $post = [
-            'title' => 'Hello Post',
-            'description' => 'this is some post',
-            'user' => [
-                'name' => 'Ahmed',
-                'email' => 'ahmed@gmail.com',
-                'created_at' => '2024-10-01 10:00:00'
-            ]
-        ];
+        //select * from posts where id = 1 limit 1;
+        $post = Post::find($id);
+
+        //select * from posts where id = 1 limit 1;
+        // $post = Post::where('id', $id)->first();
+
+        //select * from posts where title = 'laravel' limit 1;
+        // $postWithTitle = Post::where('title', 'laravel')->first();
+
+         //select * from posts where title = 'laravel';
+        //  $postsWithTitle = Post::where('title', 'laravel')->get();
 
         return view('posts.show',[
             'post' => $post,
@@ -36,7 +38,11 @@ class PostController extends Controller //StudlyCase
 
     public function create()
     {
-        return view('posts.create');
+        $users = User::all();
+
+        return view('posts.create', [
+            'users' => $users,
+        ]);
     }
 
     public function store(Request $request)
