@@ -60,12 +60,26 @@ class PostController extends Controller //StudlyCase
         // $requestObject = request();
         // $data = $requestObject->all();
 
-        // $title = request()->title;
-        // $description = request()->description;
-        // $postCreator = request()->post_creator;
+        $title = request()->title;
+        $description = request()->description;
+        $postCreator = request()->post_creator;
         // dd($title, $description, $postCreator);
 
         // dd($request->all());
+
+        //First Syntax to store post
+        // $post = new Post;
+ 
+        // $post->title = $title;
+        // $post->description = $description;
+ 
+        // $post->save();
+
+        Post::create([
+            'title' => $title,
+            'description' => $description,
+            'user_id' => $postCreator
+        ]);
 
         //query to return the data from database
         return to_route('posts.index');

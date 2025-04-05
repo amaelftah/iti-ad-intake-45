@@ -26,3 +26,7 @@ Route::get('/posts/{post}/', [PostController::class, 'show'])->name('posts.show'
 //Table
 //users, posts
 //posts (id, title varchar, description text, created_at)
+
+//1- one user has many posts ------ OR ----- one post belongs to one user
+//2- add column user_id to posts table
+//3- store user_id logic inside PostController@store
