@@ -17,3 +17,12 @@ Route::get('/posts/{post}/', [PostController::class, 'show'])->name('posts.show'
 //1- Route & Controller & view ----- (DONE)
 //2- css framework (tailwindcss) && installation && import ------ (DONE)
 //3- write the html with static data to show posts ------ (DONE
+
+
+//1- schema change
+//2- CRUD operations
+
+
+//Table
+//users, posts
+//posts (id, title varchar, description text, created_at)
