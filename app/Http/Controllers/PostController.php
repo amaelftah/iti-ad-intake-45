@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller //StudlyCase
 {
@@ -45,15 +46,16 @@ class PostController extends Controller //StudlyCase
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $request->validate([
-            'title' => ['required', 'min:3'],
-            'description' => ['required', 'min:5'],
-        ],[
-            'title.required' => 'my custom message',
-            'title.min' => 'override minimum error message for title'
-        ]);
+        // $request->validate([
+        //     'title' => ['required', 'min:3'],
+        //     'description' => ['required', 'min:5'],
+        // ],[
+        //     'title.required' => 'my custom message',
+        //     'title.min' => 'override minimum error message for title'
+        // ]);
+
         //1-get the data
         //2- store the data in database
         //3- redirect to posts index page
