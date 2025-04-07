@@ -28,10 +28,10 @@ class PostController extends Controller //StudlyCase
         //select * from posts where title = 'laravel' limit 1;
         // $postWithTitle = Post::where('title', 'laravel')->first();
 
-         //select * from posts where title = 'laravel';
+        //select * from posts where title = 'laravel';
         //  $postsWithTitle = Post::where('title', 'laravel')->get();
 
-        return view('posts.show',[
+        return view('posts.show', [
             'post' => $post,
         ]);
     }
@@ -47,6 +47,13 @@ class PostController extends Controller //StudlyCase
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required', 'min:5'],
+        ],[
+            'title.required' => 'my custom message',
+            'title.min' => 'override minimum error message for title'
+        ]);
         //1-get the data
         //2- store the data in database
         //3- redirect to posts index page
@@ -69,10 +76,10 @@ class PostController extends Controller //StudlyCase
 
         //First Syntax to store post
         // $post = new Post;
- 
+
         // $post->title = $title;
         // $post->description = $description;
- 
+
         // $post->save();
 
         Post::create([
