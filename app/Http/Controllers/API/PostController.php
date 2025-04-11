@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -11,12 +12,17 @@ class PostController extends Controller
 {
     public function index()
     {
-        return Post::all();
+        $posts = Post::all();
+        
+        return PostResource::collection($posts);
     }
 
     public function show($id)
     {
-        return Post::find($id);
+        $post = Post::find($id); //object of type App\Models\Post
+
+        //transformation
+        return new PostResource($post);
     }
 
     public function store(StorePostRequest $request)
@@ -31,6 +37,6 @@ class PostController extends Controller
             'user_id' => $postCreator
         ]);
 
-        return $post;
+        return new PostResource($post);
     }
 }
